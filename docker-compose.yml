@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: task_db
+      POSTGRES_USER: task_user
+      POSTGRES_PASSWORD: task_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  auth-api:
+    build: ./auth-api
+    container_name: auth-api
+    depends_on:
+      - postgres
+      - data-api
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/task_db
+      SPRING_DATASOURCE_USERNAME: task_user
+      SPRING_DATASOURCE_PASSWORD: task_password
+      JWT_SECRET: bWluLTEtMjMtMzQtNTY3ODkwLXNlY3JldC1rZXktMjU2Yml0
+      INTERNAL_TOKEN: super-secret
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  data-api:
+    build: ./data-api
+    container_name: data-api
+    environment:
+      INTERNAL_TOKEN: super-secret
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+
+volumes:
+  pg_data:
+
+networks:
+  app-network:
