@@ -16,6 +16,11 @@ Invoke-RestMethod -Method Post `
 -Headers @{ "Content-Type" = "application/json" } `
 -Body '{"email":"a@a.com","password":"pass"}'
 ```
+**Expected responses**
+
+- ✅ **201 Created** — user successfully registered
+- ❌ **409 Conflict** — user already exists
+- ❌ **400 Bad Request** — email or password is empty
 
 ### 3. Login
 
@@ -25,6 +30,10 @@ Invoke-RestMethod -Method Post `
 -Headers @{ "Content-Type" = "application/json" } `
 -Body '{"email":"a@a.com","password":"pass"}'
 ```
+**Expected responses**
+
+- ✅ **200 OK** — returns JWT token
+- ❌ **401 Unauthorized** — invalid email or password
 
 ### 4. Process Text
 
@@ -37,8 +46,21 @@ Invoke-RestMethod -Method Post `
 } `
 -Body '{"text":"test"}'
 ```
+**Expected responses**
+
+- ✅ **200 OK** — text transformed
+
+  Example:
+
+  ```text
+  hello -> HELLO
+  ```
+
+- ❌ **403 Forbidden** — invalid token or empty text
+
 
 ---
+
 
 ## Linux / macOS
 
@@ -55,6 +77,11 @@ curl -X POST http://localhost:8080/api/auth/register \
 -H "Content-Type: application/json" \
 -d '{"email":"a@a.com","password":"pass"}'
 ```
+**Expected responses**
+
+- ✅ **201 Created** — user successfully registered
+- ❌ **409 Conflict** — user already exists
+- ❌ **400 Bad Request** — email or password is empty
 
 ### 3. Login
 
@@ -63,6 +90,10 @@ curl -X POST http://localhost:8080/api/auth/login \
 -H "Content-Type: application/json" \
 -d '{"email":"a@a.com","password":"pass"}'
 ```
+**Expected responses**
+
+- ✅ **200 OK** — returns JWT token
+- ❌ **401 Unauthorized** — invalid email or password
 
 ### 4. Process Text
 
@@ -72,3 +103,14 @@ curl -X POST http://localhost:8080/api/process \
 -H "Content-Type: application/json" \
 -d '{"text":"hello"}'
 ```
+**Expected responses**
+
+- ✅ **200 OK** — text transformed
+
+  Example:
+
+  ```text
+  hello -> HELLO
+  ```
+
+- ❌ **403 Forbidden** — invalid token or empty text
