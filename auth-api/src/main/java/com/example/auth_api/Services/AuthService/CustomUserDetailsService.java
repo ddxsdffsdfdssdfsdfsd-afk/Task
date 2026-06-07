@@ -1,4 +1,4 @@
-package com.example.auth_api.Services;
+package com.example.auth_api.Services.AuthService;
 
 import com.example.auth_api.Entyties.User;
 import com.example.auth_api.Repositories.UserRepository;

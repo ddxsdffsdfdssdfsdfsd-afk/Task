@@ -1,7 +1,7 @@
 package com.example.auth_api.Controllers;
 
-import com.example.auth_api.DTOs.ProcessRequest;
-import com.example.auth_api.Services.ProcessService;
+import com.example.auth_api.DTOs.ProcessDTOs.ProcessRequest;
+import com.example.auth_api.Services.ProcessServices.ProcessService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;

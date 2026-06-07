@@ -1,9 +1,9 @@
 package com.example.auth_api.Controllers;
 
-import com.example.auth_api.DTOs.LoginRequest;
-import com.example.auth_api.DTOs.RegisterRequest;
-import com.example.auth_api.DTOs.TokenResponse;
-import com.example.auth_api.Services.AuthService;
+import com.example.auth_api.DTOs.AuthDTOs.LoginRequest;
+import com.example.auth_api.DTOs.AuthDTOs.RegisterRequest;
+import com.example.auth_api.DTOs.TokenDTOs.TokenResponse;
+import com.example.auth_api.Services.AuthService.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package com.example.auth_api.DTOs;
+package com.example.auth_api.DTOs.ProcessDTOs;
 
 import lombok.Data;
 

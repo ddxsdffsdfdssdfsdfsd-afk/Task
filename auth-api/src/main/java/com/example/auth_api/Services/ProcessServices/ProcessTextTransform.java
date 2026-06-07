@@ -1,6 +1,6 @@
-package com.example.auth_api.Services;
+package com.example.auth_api.Services.ProcessServices;
 
-import com.example.auth_api.DTOs.TransformRequest;
+import com.example.auth_api.DTOs.ProcessDTOs.TransformRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

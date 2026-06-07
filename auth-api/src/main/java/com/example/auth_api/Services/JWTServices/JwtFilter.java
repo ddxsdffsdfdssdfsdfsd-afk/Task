@@ -1,5 +1,6 @@
-package com.example.auth_api.Services;
+package com.example.auth_api.Services.JWTServices;
 
+import com.example.auth_api.Services.AuthService.CustomUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

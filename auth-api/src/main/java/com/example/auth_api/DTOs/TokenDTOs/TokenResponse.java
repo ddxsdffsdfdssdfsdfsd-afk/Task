@@ -1,4 +1,4 @@
-package com.example.auth_api.DTOs;
+package com.example.auth_api.DTOs.TokenDTOs;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
